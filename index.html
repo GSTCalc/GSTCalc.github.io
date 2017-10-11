@@ -1,0 +1,592 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>GST</title>
+  
+  
+
+</head>
+<body onload="onLoadBody();">
+ <link rel="stylesheet" type="text/css" href="style.css">
+
+
+
+
+<style type="text/css">
+    
+	.hero{
+		
+
+		
+		padding-top: 50px;
+		
+
+	}
+</style>
+
+
+<div class="parallax1">
+  <div class="container-fluid text-center" style="padding: 0;margin-bottom:0;">
+     <div class="hero" style="text-align: center;">
+	     <h1 style="font-size: 50px;opacity: 1.0;color: white;">GST<small style="color: #fff;opacity: 1.0;"> Calculator</small></h1>
+
+     </div>
+  </div>
+
+<div class="tab">
+  <button class="tablinks" onclick="openCity(event, 'home')" id="defaultOpen">Home</button>
+  <button class="tablinks" onclick="openCity(event, 'fnb')">Food &amp; Beverages</button>
+  
+  <button class="tablinks" onclick="openCity(event, 'app')">Apparels</button>
+  <button class="tablinks" onclick="openCity(event, 'elec')">Electronics</button>
+  
+  <button class="tablinks" onclick="openCity(event, 'auto')">Automobiles</button>
+  <button class="tablinks" onclick="openCity(event, 'serv')">Services</button>
+  <button class="tablinks" onclick="openCity(event, 'info')">Information</button>
+</div>
+
+<div id="home" class="tabcontent">
+  <p class="home-main" style="font-size: 25px;">GST</p>
+
+  <p class="home-main">
+  Confused about GST? Relax. Here's our webpage to clear all the confusions you have about it!<br></p>
+  <br> 
+  <hr>
+  <p class="home-main">What is GST?</p>
+  <p class="para-hero1" style="font-family:-apple-system, BlinkMacSystemFont,Segoe UI, Roboto,Helvetica Neue, Arial,sans-serif;">
+  
+  GST is a consumption based tax levied on sale, manufacture and consumption on goods and services at a national level. This is a single indirect tax for the whole nation and will be substitute for all indirect taxes levied by state and central government. Exports and direct tax like income tax, corporate tax and capital gain tax will not be affected . GST would apply to all goods and services barring a few to be specified. It is a single tax on the supply of goods and services, right from the manufacturer to the consumer.<br>
+  <br>
+  Through GST, the government aims to create a single comprehensive tax which will lead to the financial integration of India.<br>
+  <br>
+  The GST Council, headed by Jaitley and of which all states Finance Ministers are members, has approved four main tax slabs -- 5 per cent, 12 per cent, 18 per cent and 28 per cent that aims to lower tax incidence on essential items and to keep the highest rate for luxury and demerits goods. The lowest rate of 5 per cent will be on items of mass consumption which are used particularly by common people. The second and third category of standard rates of 12 and 18 per cent will accommodate most of the goods and services. The fourth slab of 28 per cent is levied mainly on white goods such as refrigerators, washing machines etc.
+   <br>
+  So GST is based on the principle of equity rather than equality.</br></p>
+</div>
+
+
+<div id="info" class="tabcontent">
+  <p class="para-hero">Here are a few definitions and further clarifications about the calculating procedure for GST.</p>
+  <br>
+  <hr>
+  <p class="para-hero" style="font-size: 15px;">
+    The GST levied on the intra-State supply of goods or services by the Centre is Central GST (CGST) <br>and that by the States is State GST (SGST).
+     <br>
+     <br>
+    On inter-state supply of goods and services, Integrated GST (IGST) is collected by Centre.<br> IGST is also applicable on imports.
+    <br>
+    <h2 style="font-size: 30px;margin-left: 30px;">SGST:</h2>
+    <p class="para-hero2">➢SGST means State Goods and Service Tax. It is a part of GST covered under State Goods and service Tax Act 2016.Taxes collected under State Goods and Service Tax will be the revenue of State Government. Value Added Tax, Entertainment Tax , Luxury Tax , Entry Tax etc. will be merged under SGST. For example, if goods are sold or services are provided within the State then SGST will be levied on such transaction.</p>
+    <h2 style="font-size: 30px;margin-left: 30px;">CGST:</h2>
+    <p class="para-hero2">➢CGST means Central Goods and Service Tax. It is a part of GST covered under Central Goods and Service Tax Act 2016.Taxes collected under Central Goods and Service tax will be the revenue of central Government.Central Goods And Service Tax subsumed all Present Central taxes like Central excise duty, Additional Excise duty, Special Excise Duty, Central Sales Tax, Service Tax etc.</p>
+    <h2 style="font-size: 30px;margin-left: 30px;">IGST:</h2>
+    <p class="para-hero2">➢IGST means Integrated Goods and Service Tax. It is a part of GST covered under Integrated Goods and Service Tax Act 2016. Revenue collected from IGST will be divided between Central Government and State Government. IGST will be charged on transfer of goods and services from one state to another state. Import of Goods and Services. if Goods or services are transferred from Punjab to Goa then the transaction will attract IGST</p>
+  </p>
+</div>
+
+
+<div id="fnb" class="tabcontent">
+  
+  <p class="para-hero">GST is levied on packaged food whereas unpackaged food attracts no GST.<br></p>
+  <hr>
+   <h3 style="margin-left: 30px;">Enter the price in Rs.</h3>
+   <br>
+    <FORM NAME="myform">
+          <INPUT TYPE="text" NAME="cost" class="inp-hero" VALUE="0"> 
+          <br>
+          <INPUT TYPE="button" NAME="button" class="btn-hero" Value="Calculate" onclick="calc();">
+          <br>
+          <INPUT TYPE="text" ID="res" NAME="result" class="inp1-hero" VALUE=""><br>
+          <INPUT TYPE="text" ID="res2" NAME="result" class="inp1-hero" VALUE=""><br>
+          <INPUT TYPE="text" ID="res3" NAME="result" class="inp1-hero" VALUE="">
+        </FORM>
+        <script type="text/javascript">
+               function calc()
+          {
+             var num1 = parseFloat(document.myform.cost.value);
+             var per;
+             var sum;
+             var tax;
+             if (num1 <= 100) {
+              tax = 0.00;
+               sum = num1;
+               per = 0;
+             } else if(num1 > 100 && num1<=500 ){
+              tax = num1 * (5/100);
+              sum = tax + num1;
+              per  = 5;
+             }
+             else{
+              tax = num1 * (18/100);
+              sum = tax + num1;
+              per  = 18;
+             }
+              
+             var a = parseFloat(tax).toFixed(2);
+             var half = a/2;
+             if(sum == 0){
+              document.getElementById('res').value = "Please Enter the price";
+              alert("Enter price!");
+             }
+             else{
+             document.getElementById('res').value = "The tax is Rs." + a + " and the cost is Rs."+ sum +" .";
+             document.getElementById('res2').value = "GST is "+ per + "% ."; 
+             document.getElementById('res3').value =  "SGST is Rs." + half + " & CGST is Rs." + half + ".";
+           }
+          }
+         
+       </script>
+
+</div>
+
+<div id="stat" class="tabcontent">
+  <h3>Stationery</h3>
+  <p>Paris is the capital of France.</p> 
+  
+  
+        
+  
+</div>
+<!-- Apparels -->
+<div id="app" class="tabcontent">
+  
+  <p class="para-hero">Clothes below Rs.1000 and footwear below Rs.500 attract 5% GST whereas anything above that price will attract a GST of 12%.</p>
+  <hr>
+  
+  <h2 style="margin-left: 30px;">Clothing</h2>
+  <br>
+  
+  <h3 style="margin-left: 30px;">Enter the price in Rs.</h3>
+   <br>
+    <FORM NAME="appform">
+          <INPUT TYPE="text" NAME="costapp" class="inp-hero" VALUE="0"> 
+          <br>
+          <INPUT TYPE="button" NAME="button7" class="btn-hero" Value="Calculate" onclick="calc6();">
+          <br>
+          <INPUT TYPE="text" ID="resapp" NAME="result" class="inp1-hero" VALUE=""><br>
+          <INPUT TYPE="text" ID="resapp2" NAME="result" class="inp1-hero" VALUE=""><br>
+          <INPUT TYPE="text" ID="resapp3" NAME="result" class="inp1-hero" VALUE="">
+        </FORM>
+        <script type="text/javascript">
+               function calc6()
+          {
+             var n6 = parseFloat(document.appform.costapp.value);
+             
+             var sm1;
+             var tx1;
+             var perapp;
+             if (n6 <= 1000) {
+              tx1 = n6 * 0.05;
+               sm1 = n6 + tx1;
+               perapp = 5;
+             } else if(n6 > 1000){
+              tx1 = n6 * 0.12;
+              sm1 = n6 + tx1;
+              perapp = 12;
+             }
+             tx1 = parseFloat(tx1).toFixed(2);
+             var halfapp = tx1/2;
+             
+             if(sm1 == 0){
+              document.getElementById('resapp').value = "Please Enter the price";
+              alert("Enter price!");
+             }
+             else{
+             document.getElementById('resapp').value = "The tax is Rs." + tx1 + " and the cost is Rs."+ sm1 +" .";
+             document.getElementById('resapp2').value = "GST is "+ perapp + "% ."; 
+             document.getElementById('resapp3').value =  "SGST is Rs." + halfapp + " & CGST is Rs." + halfapp + ".";
+           }
+          }
+         
+       </script>
+       
+
+     <h2 style="margin-left: 30px;">Footwear</h2>
+  <br>
+  <h3 style="margin-left: 30px;">Enter the price in Rs.</h3>
+   <br>
+    <FORM NAME="footform">
+          <INPUT TYPE="text" NAME="costfoot" class="inp-hero" VALUE="0"> 
+          <br>
+          <INPUT TYPE="button" NAME="button8" class="btn-hero" Value="Calculate" onclick="calc9();">
+          <br>
+          <INPUT TYPE="text" ID="resfoot" NAME="result8" class="inp1-hero" VALUE="">
+        </FORM>
+        <script type="text/javascript">
+               function calc9()
+          {
+             var n9 = parseFloat(document.footform.costfoot.value);
+             
+             var sm9;
+             var tx9;
+             if (n9 <= 1000) {
+              tx9 = n9 * 0.05;
+               sm9 = n9 + tx9;
+             } else if(n9 > 1000){
+              tx9 = n9 * 0.12;
+              sm9 = n9 + tx9;
+             }
+             tx9 = parseFloat(tx9).toFixed(2);
+             
+             if(sm9 == 0){
+              document.getElementById('resfoot').value = "Please Enter the price";
+              alert("Enter price!");
+             }
+             else{
+             document.getElementById('resfoot').value = "The tax is Rs." + tx9 + " and the cost is Rs."+ sm9 +" .";
+             
+           }
+          }
+         
+       </script>
+</div>
+
+
+<!-- Electronics -->
+<div id="elec" class="tabcontent">
+  
+  <p class="para-hero">Home appliances get costlier with GST as they attract 28% gst and the prices of other electronic items has also went up marginally and they attract a GST of 12%.</p>
+  
+  
+  <hr>
+  
+    <h3 style="margin-left: 30px;">Select a Category</h3>
+   <form name="electron" class="select-hero">
+     <select name="electr" id="cat">
+     <option value="select" id="0" selected>Select</option>
+  <option value="mobs" id="1">Mobiles &amp; Tabs</option>
+  <option value="print" id="2">Printers</option>
+  <option value="homeap" id="3">Home Appliances</option>
+    </select>
+    </form>
+      <br>
+      <br>
+      
+      <h3 style="margin-left: 30px;">Enter the price in Rs.</h3>
+    <FORM NAME="elecform">
+          <INPUT TYPE="text" NAME="costel" class="inp-hero" VALUE=""> 
+          <br>
+          <INPUT TYPE="button" NAME="button1" class="btn-hero" Value="Calculate" onclick="calc1();">
+          <br>
+          <INPUT TYPE="text" ID="resel" NAME="result" class="inp1-hero" VALUE=""><br>
+          <INPUT TYPE="text" ID="resel2" NAME="result" class="inp1-hero" VALUE=""><br>
+          <INPUT TYPE="text" ID="resel3" NAME="result" class="inp1-hero" VALUE="">
+        </FORM>
+        <script type="text/javascript">
+              
+               
+
+               function calc1()
+          {
+             var num1el = parseFloat(document.elecform.costel.value);
+             var sumel;
+             var taxel;
+             var mod = document.getElementById('cat').selectedIndex;
+             var sel = parseInt(mod);
+             var perel;
+             if(sel == 1){
+              taxel = num1el * 0.12;
+              sumel = taxel + num1el;
+              perel = 12;
+             }
+             else if(sel == 2){
+              taxel = num1el * 0.18;
+              sumel = taxel + num1el;
+              perel = 18;
+             }
+             else{
+              taxel = num1el * 0.28;
+              sumel = taxel + num1el;
+              perel = 28;
+             } 
+             
+             taxel = parseFloat(taxel).toFixed(2);
+             var halfel = taxel/2;
+             if(sel == 0){
+              document.getElementById('resel').value = "Please select a category";
+              alertfun();
+             }
+             else{
+              document.getElementById('resel').value = "The tax is Rs." + taxel + " and the cost is Rs."+ sumel +" .";
+             document.getElementById('resel2').value = "GST is "+ perel + "% ."; 
+             document.getElementById('resel3').value =  "SGST is Rs." + halfel + " & CGST is Rs." + halfel + ".";
+             }
+          }
+       
+       </script>
+
+
+   
+  
+
+</div>
+
+
+<div id="hnf" class="tabcontent">
+  <h3>Health &amp; Fitness</h3>
+  <p>Tokyo is the capital of Japan.</p>
+</div>
+
+<!-- Automobiles -->
+<div id="auto" class="tabcontent">
+  
+  <p class="para-hero">GST on motorbikes depends on their engine capacity.All motorbikes with engine capacity below 350cc attract a GST of 28% and above it attract 31% GST.All cars attract a GST of 28% with an additional cess of 1% on small cars,3% on mid sized cars and 15% on Luxury and hybrid cars. </p>
+  <hr>
+
+  <h3 style="margin-left: 30px;">Select a category.</h3>
+ <form name="automob" class="select-hero">
+     <select name="aut" id="catauto">
+     <option value="select" id="0" selected>Select</option>
+  <option value="mobs" id="1">Cars</option>
+  <option value="print" id="2">Bikes</option>
+  <option value="homeap" id="3">Tractors</option>
+    </select>
+    </form>
+      <br>
+      <br>
+      <h3 style="margin-left: 30px;">Enter the price in Rs.</h3>
+    <FORM NAME="autoform">
+          <INPUT TYPE="text" NAME="costauto" class="inp-hero" VALUE=""> 
+          <br>
+          <INPUT TYPE="button" NAME="button2" class="btn-hero" Value="Calculate" onclick="calc2();">
+          <br>
+          <INPUT TYPE="text" ID="resaut" NAME="resultaut" class="inp1-hero" VALUE=""><br>
+          <INPUT TYPE="text" ID="resaut2" NAME="resultaut2" class="inp1-hero" VALUE=""><br>
+          <INPUT TYPE="text" ID="resaut3" NAME="resultaut3" class="inp1-hero" VALUE="">
+        </FORM>
+        <script type="text/javascript">
+              
+               
+
+               function calc2()
+          {
+             var num1aut = parseFloat(document.autoform.costauto.value);
+             var sumaut;
+             var taxaut;
+             var modaut = document.getElementById('catauto').selectedIndex;
+             var selaut = parseInt(modaut);
+             var peraut;
+             if(selaut == 1){
+              taxaut = num1aut * 0.28;
+              sumaut = taxaut + num1aut;
+              peraut = 28;
+             }
+             else if(selaut == 2){
+              taxaut = num1aut * 0.28;
+              sumaut = taxaut + num1aut;
+              peraut = 28;
+             }
+             else{
+              taxaut = num1aut * 0.18;
+              sumaut = taxaut + num1aut;
+              peraut = 18;
+             }
+             taxaut = parseFloat(taxaut).toFixed(2);
+             sumaut = parseFloat(sumaut).toFixed(2);
+             var halfaut = taxaut/2;
+
+             if(selaut == 0){
+              document.getElementById('resaut').value = "Please select a category";
+              alertfun();
+             }
+             else{
+             document.getElementById('resaut').value = "The tax is Rs." + taxaut + " and the cost is Rs."+ sumaut +" .";
+             document.getElementById('resaut2').value = "GST is "+ peraut + "% ."; 
+             document.getElementById('resaut3').value =  "SGST is Rs." + halfaut + " & CGST is Rs." + halfaut + ".";
+             }
+           }
+       
+       </script>
+
+ 
+</div>
+
+<!-- Services -->
+<div id="serv" class="tabcontent">
+  
+  <p class="para-hero">Services include transport,movies,accomodation in hotels and supply of food and beverages in restaurants.Transport of passengers and goods (by air and rail) will be under 5% gst.Whereas transport by air in other than economy class attracts 12% gst.Hotels and lodges with tariff below Rs.1,000 attract no GST.12% GST is levied on tariffs upto Rs.2500,18% upto Rs.7500 and 28% gst on above Rs.7500.Watching movies will get costlier as movie tickets attract 28% GST.</p>
+  <hr>
+  
+  <div style="margin-top: 50px;font-size: 20px;">
+  <h3 style="margin-left:50px; ">Select a Category</h3>
+  <form name="servcat" class="select-hero">
+   <select id="servid">
+   <option   id="0" selected>Select</option>
+     <option id="1">Hotels &amp; Lodges</option>
+     <option id="2">Movies</option>
+     <option id="3">Transport (Airways &amp; Railways)</option>
+     <option id="4">Airways (Other than econ. class)</option>
+   </select>
+  </form>
+  <br>
+  <h3 style="margin-left: 30px;">Enter the price in Rs.</h3>
+  
+
+   <FORM NAME="servform">
+          <INPUT TYPE="text" NAME="costserv" class="inp-hero" VALUE=""> 
+          <br>
+          <INPUT TYPE="button" NAME="button3" class="btn-hero" Value="Calculate" onclick="calc3();">
+          <br>
+          <INPUT TYPE="text" ID="resserv" NAME="result3" class="inp1-hero" VALUE=""><br>
+          <INPUT TYPE="text" ID="resserv1" NAME="result3" class="inp1-hero" VALUE=""><br>
+          <INPUT TYPE="text" ID="resserv2" NAME="result3" class="inp1-hero" VALUE="">
+        </FORM>
+   <script type="text/javascript">
+     function calc3(){
+          var o = parseInt(document.getElementById('servid').selectedIndex);
+          
+        var n5 = parseFloat(document.servform.costserv.value);
+        var tx;
+        var sm;
+        var perserv;
+
+        if(o == 1){
+
+          if(n5 <= 1000){
+            tx =0;
+            sm = n5;
+            perserv = 0;
+          }
+          else if(n5 >1000 && n5<=2500){
+            tx = n5 *0.12;
+            sm = n5 + tx;
+            perserv = 12;
+          }
+          else if(n5 >2500 && n5<7500){
+            tx = n5 * 0.18;
+            sm = n5 + tx;
+            perserv = 18;
+
+          }
+          else
+          {
+            tx = n5 * 0.28;
+            sm = n5 + tx;
+            perserv = 28;
+          }
+
+        }
+        else if(o == 2)
+        {
+          tx = n5 * 0.28;
+          sm = n5 + tx;
+          perserv = 28;
+        }
+        else if(o == 3){
+          tx = n5 * 0.05;
+          sm = n5 + tx;
+          perserv = 5;
+
+        }
+        else if(o == 4){
+          tx = n5 * 0.12;
+          sm = n5 + tx;
+          perserv = 12;
+        }
+
+        sm = parseFloat(sm).toFixed(2);
+        tx = parseFloat(tx).toFixed(2);
+        var halfserv = tx/2;
+        if (o == 0) {
+          document.getElementById('resserv').value = "Please Select a category";
+          alertfun();
+        } else {
+        
+        document.getElementById('resserv').value = "The tax is Rs." + tx + " and the cost is Rs."+ sm +" .";
+             document.getElementById('resserv1').value = "GST is "+ perserv + "% ."; 
+             document.getElementById('resserv2').value =  "SGST is Rs." + halfserv + " & CGST is Rs." + halfserv + ".";
+       
+        
+         }
+
+
+
+
+
+
+     }
+
+     
+   </script>
+
+  </div></div>
+
+
+</div>
+
+
+
+
+
+
+<div class="text-box2">
+  <p>For more information about GST click <span><a href="http://economictimes.indiatimes.com/gst" style="color: white;">here</a></span></p>
+  
+</div>
+
+
+<div class="text-box1" style="text-align: right;padding-right: 50px;">
+  <p>Developers:<br>- Bhargav Ram<br>- Spandana</p>
+</div>
+
+
+
+
+<script>
+function openCity(evt, cityName) {
+    var i, tabcontent, tablinks;
+    tabcontent = document.getElementsByClassName("tabcontent");
+    for (i = 0; i < tabcontent.length; i++) {
+        tabcontent[i].style.display = "none";
+    }
+    tablinks = document.getElementsByClassName("tablinks");
+    for (i = 0; i < tablinks.length; i++) {
+        tablinks[i].className = tablinks[i].className.replace(" active", "");
+    }
+    document.getElementById(cityName).style.display = "block";
+    evt.currentTarget.className += " active";
+}
+
+
+function alertfun(){
+  alert("Please choose a category!");
+
+}
+
+</script>
+<script>
+// Get the element with id="defaultOpen" and click on it
+document.getElementById("defaultOpen").click();
+</script>
+<script type="text/javascript">
+  function onLoadBody() {
+    document.getElementById('resel').readOnly = true;
+    document.getElementById('res2').readOnly = true;
+    document.getElementById('res3').readOnly = true;
+    document.getElementById('res').readOnly = true;
+
+    document.getElementById('resapp').readOnly = true;
+    document.getElementById('resapp2').readOnly = true;
+    document.getElementById('resapp3').readOnly = true;
+
+    document.getElementById('resfoot').readOnly = true;
+
+    document.getElementById('resel').readOnly = true;
+    document.getElementById('resel2').readOnly = true;
+    document.getElementById('resel3').readOnly = true;
+
+    document.getElementById('resaut').readOnly = true;
+    document.getElementById('resaut2').readOnly = true;
+    document.getElementById('resaut3').readOnly = true;
+
+    document.getElementById('resserv').readOnly = true;
+    document.getElementById('resserv2').readOnly = true;
+    document.getElementById('resserv1').readOnly = true;
+  } 
+</script>
+
+
+
+
+</body>
+</html>
